@@ -13,7 +13,7 @@ import math
 import json
 import tsplib95
 
-path_to_data = '../benchmark_dataset/'
+path_to_data = './benchmark_dataset/'
 
 def acceptance_function(del_E,Temperature):
     if del_E < 0:
@@ -28,8 +28,8 @@ def acceptance_function(del_E,Temperature):
 def path_cost(path, roads):
     return sum(roads[path[k-1]][path[k]] for k in range(len(path)))
 
-def simulated_annealing(cities, roads, T_min = 0.00000001, cost_threshold = 0,cooling_rate = 0.9999995):
-    Temperature = int(1e8)
+def simulated_annealing(cities, roads, T_min = 0.0000001, cost_threshold = 0,cooling_rate = 0.999995):
+    Temperature = int(1e7)
     path = [0] + random.sample(range(1, cities), cities - 1) + [0]
     cost = path_cost(path, roads)
     while Temperature > T_min and cost > cost_threshold :
