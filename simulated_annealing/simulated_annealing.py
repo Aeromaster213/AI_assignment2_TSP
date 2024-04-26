@@ -13,7 +13,7 @@ import math
 import json
 import tsplib95
 
-path_to_data = './benchmark_dataset/'
+path_to_data = '../benchmark_dataset/'
 
 def acceptance_function(del_E,Temperature):
     if del_E < 0:
